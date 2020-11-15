@@ -1,0 +1,18 @@
+{%extends 'main/base.html'%}
+{% block title %}
+Update Task
+{% endblock title %}
+{% block content %}
+{% if tasks %}
+<form class="form-inline my-2 my-lg-0" method="POST">
+    {% csrf_token %}
+    <input class="form-control mr-sm-2" type="search" placeholder="{{ el.title_task }}" value="{{ el.title_task }}"
+        aria-label="Search" name="item">
+    <input type="hidden" value="{{ el.complete }}" name="complete">
+    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">SUBMIT CHANGES</button>
+
+</form>
+<br>
+<a href="{% url 'index' %}" class="btn btn-dark" role="button">BACK</a>
+{% endif %}
+{% endblock %}
